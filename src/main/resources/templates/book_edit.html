@@ -1,0 +1,69 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+</head>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+	rel="stylesheet" type="text/css" />
+<body>
+	<div class="header mb-3">
+		<h3>Duke's Book Store</h3>
+	</div>
+
+	<div class="container">
+		<div class="card" th:object="${book}">
+			<div class="card-header">
+				<h3>Edit Form</h3>
+			</div>
+			<div class="card-body">
+				<form th:action="@{/admin/saveBook}" th:object="${book}"
+					method="post">
+					<div class="form-group">
+						<label>Book Id</label>
+						<input type="text" class="form-control" th:field="*{id}" readonly="readonly">
+					</div>
+					<div class="form-group">
+						<label>Book Title</label>
+						<input type="text" class="form-control" th:field="*{title}">
+					</div>
+					<div class="form-group">
+						<label>Author's Firstname</label>
+						<input type="text" class="form-control" th:field="*{firstName}">
+					</div>
+					<div class="form-group">
+						<label>Author's Surname</label>
+						<input type="text" class="form-control" th:field="*{surName}">
+					</div>
+					<div class="form-group">
+						<label>Price</label>
+						<input type="text" class="form-control" th:field="*{price}">
+					</div>
+					<div class="form-group">
+						<label>On Sale</label>
+						<input type="text" class="form-control" th:field="*{onSale}">
+					</div>
+					<div class="form-group">
+						<label>Calendar Year</label>
+						<input type="text" class="form-control" th:field="*{calendarYear}">
+					</div>
+					<div class="form-group">
+						<label>Inventory</label>
+						<input type="text" class="form-control" th:field="*{inventory}">
+					</div>
+					
+					<textarea rows="" cols="" class="form-control" th:field="*{description}"></textarea>
+					<button class="btn btn-info mt-3" type="submit">Update</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>

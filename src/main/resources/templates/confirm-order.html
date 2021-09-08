@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+</head>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+	rel="stylesheet" type="text/css" />
+<body>
+	<div class="header mb-3">
+		<h3>Duke's Book Store</h3>
+	</div>
+
+	<div class="container" th:each="order : ${listOrder}">
+		<h3>Thanks for shopping with us. Your order id code number is <span th:text="${order.id}" class="text-success"></span></h3>
+		<a th:href="@{/}">Return to home page</a>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>

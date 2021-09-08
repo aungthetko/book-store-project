@@ -1,0 +1,119 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+</head>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+<body>
+	<div class="header mb-3">
+		<h3>Duke's Admin Panel</h3>
+	</div>
+
+	<div class="container">
+		<button class="btn-add">Add Book +</button>
+		<span th:text="${#lists.size(listBooks)}" th:class="book-count"></span>
+		<aside class="side-bar">
+			<div class="container">
+				<p style="margin-top: 10px; display: inline-block;   margin-bottom: 0px;">Add new book</p>
+				<i class="fas fa-times btn-close"></i>
+				<hr>
+
+				<form action="#" th:object="${book}" th:action="@{/admin/saveBook}" method="post">
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<input type="text" class="form-control"
+									placeholder="Author's Surname" required="required" th:field="*{surName}">
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<input type="text" class="form-control"
+									placeholder="Author's Firstname" required="required" th:field="*{firstName}">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<input type="text" class="form-control"
+									placeholder="Title" required="required" th:field="*{title}">
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<input type="text" class="form-control"
+									placeholder="Price : $0.00" required="required" th:field="*{price}">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<input type="text" class="form-control"
+									placeholder="On sale..." required="required" th:field="*{onSale}">
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<input type="text" class="form-control"
+									placeholder="Calendar Year" required="required" th:field="*{calendarYear}">
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<input type="text" class="form-control"
+									placeholder="Inventory" required="required" th:field="*{inventory}">
+							</div>
+						</div>
+					</div>
+					
+					<textarea rows="" cols="" class="form-control" placeholder="Review about this book" th:field="*{description}"></textarea>
+					
+					<button class="btn btn-info btn-block mt-3" type="submit">SAVE</button>
+				</form>
+			</div>
+		</aside>
+		<table class="table mt-3">
+			<tr th:if="${#lists.isEmpty(listBooks)}">
+				<td>No Books!!!</
+			</tr>
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Title</th>
+					<th scope="col">Author's Firstname</th>
+					<th scope="col">Author's Surname</th>
+					<th scope="col">Price</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr class="table-row" th:each="book : ${listBooks}">
+					<td th:text="${book.id}"></td>
+					<td th:text="${book.title}"></td>
+					<td th:text="${book.firstName}"></td>
+					<td th:text="${book.surName}"></td>
+					<td th:text="${book.price}"></td>
+					<td>
+					<a th:href="@{'/admin/edit/' + ${book.id}}"><i class="fas fa-pencil-alt action-icon bg-primary"></i></a>
+					<a th:href="@{'/admin/delete/' + ${book.id}}"><i class="fas fa-trash action-icon bg-danger"></i></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>

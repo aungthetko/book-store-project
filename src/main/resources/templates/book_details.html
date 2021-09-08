@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+</head>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+<body>
+	<div class="header mb-3">
+		<h3>Duke's Book Store</h3>
+	</div>
+	
+	<div class="container">
+		<div class="card" th:object="${book}">
+			<div class="card-header">
+				<div>
+					<p th:text="${book.id}"></p>
+				</div>
+				<p th:text="${book.title}"></p>
+			</div>
+			<div class="card-body">
+				<h3>
+					<span th:text="${'Author Full Name - ' + book.firstName + ' ' + book.surName + '.'}"></span>
+				</h3>
+				<h3>
+					<span th:text="${'Price - ' + book.price}"></span>
+				</h3>
+				<h3>
+					<span th:text="${'Calendar Year - ' + book.calendarYear}"></span>
+				</h3>
+				<h3>
+					<span th:text="${'On Sale - ' + book.onSale}"></span>
+				</h3>
+				<h3>
+					<span th:text="${'Inventory - ' + book.inventory}"></span>
+				</h3>
+				<h3>
+					<span th:text="${'Review about this book - ' + book.description}"></span>
+				</h3>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>

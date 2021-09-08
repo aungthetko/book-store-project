@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+</head>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+	rel="stylesheet" type="text/css" />
+<body>
+	<div class="header mb-3">
+		<h3>Duke's Book Store</h3>
+	</div>
+
+	<div class="container">
+		<form action="#" th:action="@{/saveorder}" th:object="${order}" method="post">
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Name"
+							required="required" th:field="*{name}">
+							</div>
+						</div>
+						<div class="col">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Email"
+								required="required" th:field="*{email}">
+							</div>
+						</div>
+				</div>
+					
+					<div class="row">
+							<div class="col">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Phone"
+										required="required" th:field="*{phoneNumber}">
+							</div>
+						</div>
+						<div class="col">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Address"
+											required="required" th:field=*{address}>
+									</div>
+								</div>
+							</div>
+							<button class="btn btn-info btn-block mt-3" type="submit">Order</button>
+		</form>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>
